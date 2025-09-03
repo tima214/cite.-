@@ -6,293 +6,469 @@
   <title>Elysium Project</title>
   <style>
     :root{
-      --bg1: #0f2027;
-      --bg2: #203a43;
-      --bg3: #2c5364;
-      --grad1: linear-gradient(90deg, #00ffcc, #00b3ff, #8e44ad);
+      --grad1: linear-gradient(270deg, #ff0000, #0000ff, #ff0000);
       --tg-grad: linear-gradient(90deg,#0088cc,#00aaff);
     }
-
     body{
-      margin:0;
-      min-height:100vh;
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background: linear-gradient(to bottom, var(--bg1), var(--bg2), var(--bg3));
-      color:#fff;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      scroll-behavior:smooth;
-      overflow-x:hidden;
-    }
-
-    header{
-      width:100%;
-      padding:24px 20px;
-      text-align:center;
-      background: rgba(0,0,0,0.2);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5) inset;
-      position:relative;
-    }
-    header .title{
-      font-size: clamp(28px, 6vw, 48px);
-      font-weight:800;
+      margin:0; min-height:100vh;
+      font-family:"Segoe UI", Roboto, Arial, sans-serif;
       background: var(--grad1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 6px 24px rgba(0,0,0,0.6);
-      animation: shine 5s linear infinite;
+      background-size: 600% 600%;
+      animation: gradientMove 20s ease infinite;
+      color:#fff; display:flex; flex-direction:column; align-items:center;
     }
-    @keyframes shine {
-      0%{ filter:brightness(100%); }
-      50%{ filter:brightness(140%); }
-      100%{ filter:brightness(100%); }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
+    header{ width:100%; padding:24px 20px; text-align:center; background:rgba(0,0,0,0.2); position:relative; }
+    header .title{ font-size:clamp(28px,6vw,48px); font-weight:800; color:white; }
+    .menu{ position:absolute; top:20px; right:20px; display:flex; gap:10px; }
+    .menu button{ background:rgba(255,255,255,0.2); border:none; padding:10px 20px; border-radius:10px; color:#fff; font-weight:600; cursor:pointer; }
 
-    .menu{
-      position:absolute;
-      top:20px;
-      right:20px;
-    }
-    .menu button{
-      background: var(--grad1);
-      border:none;
-      padding:10px 20px;
-      border-radius:10px;
-      color:#fff;
-      font-weight:600;
-      cursor:pointer;
-      transition:0.2s;
-    }
-    .menu button:hover{ transform:scale(1.05); }
+    main{ width:100%; max-width:1100px; padding:40px 20px 80px; }
+    .card{ background:rgba(255,255,255,0.05); border-radius:16px; padding:36px; margin:20px auto; box-shadow:0 8px 30px rgba(0,0,0,0.6); max-width:820px; }
 
-    main{
-      width:100%;
-      max-width:1100px;
-      padding:40px 20px 80px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:28px;
-    }
+    .play-big{ display:inline-block; margin:20px auto; padding:20px 50px; font-size:1.6rem; font-weight:800; border:none; border-radius:20px; background:linear-gradient(90deg,#ff0000,#ff5722); color:white; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,0.6); }
+    .copy-btn{ display:inline-block; margin-top:16px; padding:14px 30px; font-weight:700; border:none; border-radius:12px; background:linear-gradient(90deg,#4CAF50,#2ecc71); color:white; cursor:pointer; }
+    .tg-link{ background: var(--tg-grad); display:inline-block; margin-top:16px; font-weight:700; border-radius:14px; text-decoration:none; color:#fff; border:none; cursor:pointer; padding:14px 40px; }
 
-    .card{
-      width:100%;
-      max-width:820px;
-      background: rgba(255,255,255,0.05);
-      border-radius:16px;
-      padding:36px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-    }
+    .user-list{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; }
+    .user-card{ background:rgba(0,0,0,0.45); border-radius:12px; padding:14px; box-shadow:0 4px 18px rgba(0,0,0,0.4); display:flex; flex-direction:column; gap:8px; }
+    .user-card .nick{ font-weight:700; font-size:16px; cursor:pointer; }
+    .delete-btn{ background:#e53935; color:white; border:none; border-radius:6px; padding:6px; cursor:pointer; font-size:14px; }
 
-    .play-link, .copy-btn, .tg-link{
-      display:inline-block;
-      margin-top:16px;
-      font-weight:700;
-      border-radius:14px;
-      text-decoration:none;
-      color:#fff;
-      transition: transform .18s ease, box-shadow .18s ease;
-      border:none;
-      cursor:pointer;
-    }
+    footer{ text-align:center; padding:18px; color:#cfeafc; margin-top:40px; background:rgba(0,0,0,0.06); }
 
-    .play-link{
-      padding:20px 60px;
-      font-size:1.45rem;
-      background: var(--grad1);
-    }
-    .play-link:hover{ transform: translateY(-6px) scale(1.02); }
-
-    .copy-btn{
-      padding:14px 40px;
-      font-size:1.05rem;
-      background: linear-gradient(90deg,#4CAF50,#2ecc71);
-    }
-    .copy-btn:hover{ transform: translateY(-4px); }
-
-    .tg-link{
-      padding:14px 46px;
-      font-size:1.05rem;
-      background: var(--tg-grad);
-    }
-    .tg-link:hover{ transform: translateY(-4px); }
-
-    #join{ text-align:center; }
-
-    .ip-box{
-      background: rgba(0,0,0,0.55);
-      padding:18px 28px;
-      border-radius:12px;
-      font-size:1.15rem;
-      margin-top:12px;
-    }
-
-    /* ---- Личный кабинет ---- */
-    .modal{
-      position:fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:rgba(0,0,0,0.7);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      visibility:hidden;
-      opacity:0;
-      transition:0.3s;
-    }
-    .modal.active{ visibility:visible; opacity:1; }
-
-    .modal-content{
-      background:#1e2a35;
-      padding:30px;
-      border-radius:14px;
-      max-width:400px;
-      width:90%;
-      box-shadow:0 0 20px rgba(0,0,0,0.8);
-      text-align:center;
-      position:relative;
-    }
-    .modal-content h2{ margin:0 0 16px; }
-    .modal-content input{
-      width:100%;
-      padding:10px;
-      margin:8px 0;
-      border-radius:8px;
-      border:none;
-    }
-    .modal-content button{
-      margin-top:12px;
-      padding:12px 20px;
-      background:var(--grad1);
-      border:none;
-      border-radius:10px;
-      color:#fff;
-      font-weight:600;
-      cursor:pointer;
-    }
-    .modal-close{
-      position:absolute;
-      top:15px;
-      right:20px;
-      font-size:22px;
-      cursor:pointer;
-    }
-
-    footer{
-      width:100%;
-      padding:18px 20px;
-      text-align:center;
-      color: #cfeafc;
-      margin-top:40px;
-      background: rgba(0,0,0,0.06);
-    }
+    /* Модалки */
+    .modal{ position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:none; justify-content:center; align-items:center; z-index:999; }
+    .modal.active{ display:flex; }
+    .modal-content{ background:#1e2a35; padding:20px; border-radius:12px; width:480px; display:none; position:relative; }
+    .modal-content.active{ display:block; }
+    .modal-close{ position:absolute; top:10px; right:14px; cursor:pointer; font-size:22px; }
+    .modal-content input, .modal-content select{ width:100%; padding:10px; margin:6px 0; border-radius:8px; border:none; }
+    .modal-content button{ width:100%; padding:10px; margin:6px 0; border:none; border-radius:8px; font-weight:bold; cursor:pointer; }
+    .google-btn{ background:#DB4437; color:white; border:none; padding:10px; border-radius:8px; font-weight:700; cursor:pointer; }
+    .remember{ display:flex; align-items:center; gap:6px; font-size:14px; margin:8px 0; }
+    pre { overflow-x:auto; white-space:pre-wrap; font-size:14px; line-height:1.4; }
   </style>
 </head>
 <body>
   <header>
-    <div class="title">𝐄𝐥𝐲𝐬𝐢𝐮𝐦 𝐏𝐫𝐨𝐣𝐞𝐜𝐭</div>
+    <div class="title">Elysium Project</div>
     <div class="menu">
-      <button onclick="openModal()">👤 Личный кабинет</button>
+      <button onclick="openRules()">📜 Правила</button>
+      <button onclick="openCabinet()">👤 Личный кабинет</button>
     </div>
   </header>
 
   <main>
+    <!-- Главный блок -->
     <section class="card" id="about">
       <h2>🏰 О сервере</h2>
-      <p>
-        Добро пожаловать в <strong>Elysium Project</strong>! Здесь тебя ждут уникальные миры,
-        честное выживание и дружное комьюнити.
-      </p>
-
+      <p>Добро пожаловать в <b>Elysium Project</b>! Уникальные миры, честное выживание и дружное комьюнити ждут тебя.</p>
       <div style="text-align:center;">
-        <a id="play-link" class="play-link" href="#">🎮 Подключиться и играть</a>
+        <button class="play-big" onclick="scrollToIp()">🚀 Начать играть</button>
       </div>
-
       <div style="text-align:center;">
-        <a class="tg-link" href="https://t.me/tima1445688" target="_blank">💬 Предложение по развитию в Telegram</a>
+        <a class="tg-link" href="https://t.me/tima1445688" target="_blank">💬 Telegram</a>
       </div>
     </section>
 
-    <section id="join">
-      <button class="copy-btn" onclick="copyIP()">📋 Скопировать IP</button>
-      <div class="ip-box">
-        IP: <b id="ip-text">play.mysurvival.net:25565</b><br>
-        Версия: <b>1.21+</b>
-      </div>
+    <!-- Блок с IP -->
+    <section class="card" id="ip-section">
+      <h2>🌍 Подключение к серверу</h2>
+      <p><b>IP:</b> 213.152.43.1:25617</p>
+      <p><b>Версия:</b> 1.21.8</p>
+      <button class="copy-btn" onclick="copyIp()">📋 Скопировать IP</button>
+    </section>
+
+    <!-- Пользователи -->
+    <section class="card" id="users">
+      <h2>👥 Пользователи</h2>
+      <div id="user-list" class="user-list"></div>
+    </section>
+
+    <!-- ПРАВИЛА — ПОЛНОСТЬЮ -->
+    <section class="card" id="rules">
+      <h2>📜 Правила</h2>
+<pre style="white-space:pre-wrap; font-family:inherit; font-size:14px; line-height:1.4;">
+🔥 1.1: Запрещены грубые разбирательства и оскорбления грубого характера в сторону пользователя или его круга общения: угроза нанесения увечий, упоминание родственников в оскорбительной форме, косвенные угрозы, а также грубое оскорбление близкого окружения или его самого.
+📌 Наказание: 1 пред. + мут на 2 часа.
+
+🔥 1.2: Запрещены деструктивные действия по отношению к проекту, игровому серверу и управляющей администрации: неконструктивная критика проекта или его управляющего состава, в т.ч. создателя проекта, призывы покинуть сервер или нарушить его развитие или установленные правила, а также любые действия, что могут быть расценены администрацией как помеха коммуникации.
+📌 Наказание: 2 пред. + мут на 1 час.
+  
+🔥 1.3: Запрещены невидимые Unicode-like никнеймы, намеренное копирование профилей (аватар + никнейм). Не поощряются оскорбительные и провокационные статусы/био из профилей пользователей и участников проекта.
+📌 Наказание: 1 пред. / кик в последующих нарушениях бан
+  
+🔥 1.4: Запрещена демонстрация и публикация конфиденциальной информации и личных данных любого участника, в том числе личные переписки, фото, видео-материалы и прочее медиа. Категорически запрещены угрозы расправой и причинения вреда, деанонимизация, доксинг, сваттинг, прочее.
+📌 Наказание: бан 
+  
+🔥 1.5: Администрация оставляет за собой право блокировать и ограничивать доступ проблемным и конфликтным пользователям в рамках проекта. Если пользователь ведёт себя злонамеренно, провокационно и угрожает благополучию проекта или его участникам, возможно принятие решения о его блокировке.
+📌 Наказание: пред. / мут на усмотрение модерации.
+ 
+🔥 1.6: Запрещена демонстрация шок-контента, тошнотворного или контента сексуального характера, а также любого рода агитация и пропаганда к употреблению психотропных веществ.
+📌 Наказание: 1 пред. + мут на 4 часа.
+  
+🔥 1.7: Запрещено разжигание конфликтов на национальной почве, религиозной основе и дискриминация по любому вышеперечисленному признаку по отношению к любому участнику проекта и/или сервера. Сюда входит выставление реакций  провокационного характера и поддержка таковых.
+📌 Наказание: 1 пред. + мут на 1 час.
+ 
+🔥 1.8: Запрещено препятствовать работе администрации, публично критиковать их или дискредитировать действия управляющего состава, в т.ч. модерации.
+📌 Наказание: мут на 1 час, при повторе - 4 часа.
+  
+🔥 1.9: Запрещено нерациональное использование чата (как голосового, так и текстового), что включает в себя чрезмерный капс, оффтоп, спам, флуд, мультипост итд.
+📌 Наказание: 1 пред, мут на 1 час
+  
+🔥 1.10: Запрещено злоупотребление отчётами в #сообщить-о-нарушении; а также клевета. Отчёты от третьих лиц не принимаются.
+📌 Наказание: пред. , мут на 2 часа
+
+🔥 1.11: Запрещено злоупотребление правилами проекта, в том числе поиск и использование в них лазеек с целью получения личной выгоды или обхода ограничений. Такие действия считаются злонамеренными и подрывают порядок на сервере.
+📌 Наказание: 1 пред. + мут на 1 день
+
+
+Примечания
+ 
+🔥 2.1: Запрещены попытки обхода или ухода от выданного наказания путём создания дополнительных аккаунтов.
+📌 Наказание: бан основного и доп. аккаунтов бессрочно.
+  
+🔥 2.2: Запрещено выпрашивать что-либо связанное с игровым сервером и/или проектом в рамках открытых чатов и обсуждений.
+📌 Наказание: 1 пред. + мут на 2 часа.
+ 
+🔥 2.3: Запрещено неадекватное поведение в голосовых каналах и в самой игре, нацеленное на препятствие общению ( трансляция громких звуков, которые препятствуют общению ).
+📌 Наказание: войс-мут на 2 часа.
+  
+🔥 2.4: Запрещена реклама сторонних коммерческих и/или скам-ресурсов и прочего в любых ее проявлениях.
+📌 Наказание: кик, бан
+
+🔥 2.5: Запрещены завуалированные и замаскированные аналоги запрещенных к использованию банвордов в рамках проекта, данное расценивается как уход от наказания.
+📌 Наказание: 1 пред. / мут на 1 час / бан ( на усмотрение модерации).
+</pre>
     </section>
   </main>
 
   <footer>© 2025 Elysium Project. Все права защищены.</footer>
 
-  <!-- Модалка ЛК -->
+  <!-- Модалки -->
   <div class="modal" id="modal">
-    <!-- Панель входа -->
+    <!-- Вход -->
     <div class="modal-content" id="login-panel">
       <span class="modal-close" onclick="closeModal()">&times;</span>
-      <h2>👤 Личный кабинет</h2>
-      <p><b>Регистрация / Вход</b></p>
+      <h2>Вход / Регистрация</h2>
+
       <input type="text" id="nickname" placeholder="Никнейм">
       <input type="password" id="password" placeholder="Пароль">
-      <button onclick="login()">Войти</button>
-      <input type="text" id="nickname" style="background-color: #1e2a35; color: #7d129e;" placeholder="Никнейм">
+      <div class="remember">
+        <input type="checkbox" id="rememberMe">
+        <label for="rememberMe">Запомнить меня</label>
+      </div>
+
+      <!-- Отдельные кнопки -->
+      <button onclick="loginUser()">🔑 Войти</button>
+      <button onclick="registerUser()">✅ Зарегистрироваться</button>
+      <button class="google-btn" onclick="loginGoogle()">🔑 Войти через Google</button>
     </div>
 
-    <!-- Панель профиля -->
-<div class="modal-content" id="user-panel" style="display:none;">
-  <span class="modal-close" onclick="closeModal()">&times;</span>
-  <h2>👤 Личный кабинет</h2>
-  <div style="margin-bottom:15px;">
-    <img id="skin" src="https://minotar.net/armor/bust/Steve/150.png" alt="Скин игрока" style="border-radius:8px; box-shadow:0 0 10px black;">
-  </div>
-  <p>🎮 Ник: <b id="user-nick"></b></p>
-  <p>⏳ Наиграно: <b>12 ч</b></p>
-  <p>🏰 Ранг: <span id="user-rank" class="rank">Игрок</span></p>
-  <p>💬 Telegram: <a href="https://t.me/tima1445688" target="_blank">@tima1445688</a></p>
-  <button onclick="logout()">🚪 Выйти</button>
-</div>
+    <!-- Личный кабинет -->
+    <div class="modal-content" id="user-panel">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <h2>👤 Профиль</h2>
+      <p>ID: <b id="user-id"></b></p>
+      <p>🎮 Ник: <b id="user-nick"></b></p>
+      <p>🏰 Ранг: <span id="current-rank"></span></p>
 
+      <!-- Админ-панель в ЛК (видна Основателю и Старшему Тех.Админу) -->
+      <div id="self-admin-tools" style="display:none; margin-top:10px;">
+        <h3>⚙️ Админ-панель</h3>
+        <select id="self-rank-select"></select>
+        <button onclick="setSelfRank()">✅ Сменить свой ранг</button>
+        <input type="number" id="self-id-input" placeholder="Новый ID">
+        <button onclick="setSelfId()">♻️ Сменить свой ID</button>
+        <button onclick="deleteSelf()">🗑 Удалить свой аккаунт</button>
+      </div>
+
+      <button onclick="logout()">🚪 Выйти</button>
+    </div>
+
+    <!-- Просмотр чужого профиля -->
+    <div class="modal-content" id="profile-view">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <h2>👤 Профиль пользователя</h2>
+      <p>ID: <b id="view-id"></b></p>
+      <p>🎮 Ник: <b id="view-nick"></b></p>
+      <p>🏰 Ранг: <span id="view-rank"></span></p>
+
+      <!-- Админ-панель при просмотре (видна Основателю и Старшему Тех.Админу) -->
+      <div id="admin-tools" style="display:none; margin-top:10px;">
+        <h3>⚙️ Админ-панель</h3>
+        <select id="admin-rank-select"></select>
+        <button onclick="setUserRank()">✅ Сменить ранг</button>
+        <input type="number" id="admin-id-input" placeholder="Новый ID">
+        <button onclick="setUserId()">♻️ Сменить ID</button>
+        <button onclick="deleteUser()">🗑 Удалить аккаунт</button>
+      </div>
+    </div>
+  </div>
 
   <script>
-    const SERVER_IP = "play.mysurvival.net";
-    const SERVER_PORT = "25565";
-    const SERVER_NAME = "Elysium Project";
+    const rankColors = {
+      "Игрок":"#ffffff",
+      "Стажёр":"#f8c8dc",
+      "Администратор":"#ff1493",
+      "Главный Администратор":"#e53935",
+      "Куратор":"#ff9800",
+      "Модератор":"#87cefa",
+      "Старший Модератор":"#42a5f5",
+      "Технический Администратор":"#1565c0",
+      "Старший Технический Администратор":"#7CFC00",
+      "Основатель":"#8e24aa"
+    };
 
-    document.getElementById("ip-text").textContent = SERVER_IP + ":" + SERVER_PORT;
-    document.getElementById("play-link").href =
-      "minecraft://?addExternalServer=" + encodeURIComponent(SERVER_NAME) + "|" +
-      encodeURIComponent(SERVER_IP + ":" + SERVER_PORT);
+    // Загрузка пользователей / сессии
+    let users = JSON.parse(localStorage.getItem("users") || "[]");
+    let currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
+    let viewedUser = null;
 
-    function copyIP(){
-      navigator.clipboard.writeText(SERVER_IP + ":" + SERVER_PORT)
-        .then(()=> alert("IP скопирован: " + SERVER_IP + ":" + SERVER_PORT));
+    function saveUsers(){ localStorage.setItem("users", JSON.stringify(users)); }
+    function saveCurrent(){ localStorage.setItem("currentUser", JSON.stringify(currentUser)); }
+
+    // Отрисовка пользователей
+    function renderUsers(){
+      const container=document.getElementById("user-list"); container.innerHTML="";
+      const sorted = [...users].sort((a,b)=> (a.id||0) - (b.id||0));
+      sorted.forEach(u=>{
+        const div=document.createElement("div");
+        div.className="user-card";
+        div.innerHTML=`<div>ID: ${u.id}</div>
+          <div class="nick" style="color:${rankColors[u.rank]||"#fff"}">🎮 ${u.nick}</div>
+          <div>🏰 <span style="color:${rankColors[u.rank]||'#fff'}">${u.rank}</span></div>`;
+        div.querySelector(".nick").onclick=()=>viewProfile(u);
+
+        // Кнопка удаления для Основателя и Старшего Тех.Админа
+        if(currentUser && (currentUser.rank==="Основатель" || currentUser.rank==="Старший Технический Администратор")){
+          const btn=document.createElement("button");
+          btn.className="delete-btn";
+          btn.textContent="🗑 Удалить";
+          btn.onclick=(e)=>{ e.stopPropagation(); deleteByNick(u.nick); };
+          div.appendChild(btn);
+        }
+        container.appendChild(div);
+      });
     }
 
-    function openModal(){ document.getElementById("modal").classList.add("active"); }
-    function closeModal(){ document.getElementById("modal").classList.remove("active"); }
+    // --- Регистрация (локально)
+    function registerUser(){
+      const nick=document.getElementById("nickname").value.trim();
+      const pass=document.getElementById("password").value.trim();
+      if(!nick||!pass){ alert("Введите данные"); return; }
+      if(users.some(u=>u.nick===nick)){ alert("Такой пользователь уже есть!"); return; }
+      const maxId = users.length ? Math.max(...users.map(x=>Number(x.id)||0)) : 0;
+      const id = maxId + 1;
+      const rank = users.length===0 ? "Основатель" : "Игрок";
+      const newUser={id,nick,pass,rank};
+      users.push(newUser); saveUsers();
+      currentUser=newUser; saveCurrent();
+      showProfile(newUser); renderUsers();
+    }
 
-    // --- Личный кабинет ---
-    function login(){
-      const nick = document.getElementById("nickname").value.trim();
-      const pass = document.getElementById("password").value.trim();
-      if(!nick || !pass){
-        alert("Введите ник и пароль!");
-        return;
+    // --- Обычный вход (локально)
+    function loginUser(){
+      const nick=document.getElementById("nickname").value.trim();
+      const pass=document.getElementById("password").value.trim();
+      const user=users.find(u=>u.nick===nick && u.pass===pass);
+      if(!user){ alert("Неверный логин или пароль!"); return; }
+      if(document.getElementById("rememberMe")?.checked){ currentUser=user; saveCurrent(); }
+      else { currentUser=user; }
+      showProfile(user);
+    }
+
+    // --- Вход через Google (заглушка)
+    function loginGoogle(){
+      const maxId = users.length ? Math.max(...users.map(x=>Number(x.id)||0)) : 0;
+      const id = maxId + 1;
+      const nick = "GoogleUser" + id;
+      const rank = users.length===0 ? "Основатель" : "Игрок";
+      const newUser = { id, nick, pass: "oauth_google", rank };
+      users.push(newUser);
+      saveUsers();
+      if(document.getElementById("rememberMe")?.checked){ currentUser=newUser; saveCurrent(); }
+      else { currentUser=newUser; }
+      alert("Выполнен вход через Google как: " + nick + (rank==="Основатель" ? " (назначен Основателем)" : ""));
+      showProfile(newUser);
+      renderUsers();
+    }
+
+    // --- Профиль текущего пользователя
+    function showProfile(user){
+      document.getElementById("user-id").textContent=user.id;
+      document.getElementById("user-nick").textContent=user.nick;
+      document.getElementById("current-rank").textContent=user.rank;
+      document.getElementById("current-rank").style.color=rankColors[user.rank] || "#fff";
+
+      const selfTools=document.getElementById("self-admin-tools");
+      if(currentUser && (currentUser.rank==="Основатель" || currentUser.rank==="Старший Технический Администратор")){
+        selfTools.style.display="block";
+        const sel=document.getElementById("self-rank-select"); sel.innerHTML="";
+        Object.keys(rankColors).forEach(r=>{
+          const opt=document.createElement("option");
+          opt.value=r; opt.textContent=r; opt.style.color=rankColors[r];
+          if(user.rank===r) opt.selected=true;
+          sel.appendChild(opt);
+        });
+        document.getElementById("self-id-input").value=user.id;
+      } else {
+        selfTools.style.display="none";
       }
-      // В будущем здесь запрос к серверу
-      document.getElementById("login-panel").style.display = "none";
-      document.getElementById("user-panel").style.display = "block";
-
-      document.getElementById("user-nick").textContent = nick;
-      document.getElementById("skin").src = "https://minotar.net/armor/bust/" + nick + "/150.png";
+      openModal("user");
     }
 
     function logout(){
-      document.getElementById("login-panel").style.display = "block";
-      document.getElementById("user-panel").style.display = "none";
-      document.getElementById("nickname").value = "";
-      document.getElementById("password").value = "";
+      currentUser=null; localStorage.removeItem("currentUser"); openModal("login");
     }
+
+    // --- Просмотр чужого профиля
+    function viewProfile(user){
+      viewedUser = users.find(u=>u.nick === user.nick);
+      document.getElementById("view-id").textContent=viewedUser.id;
+      document.getElementById("view-nick").textContent=viewedUser.nick;
+      document.getElementById("view-rank").textContent=viewedUser.rank;
+      document.getElementById("view-rank").style.color=rankColors[viewedUser.rank] || "#fff";
+
+      const adminTools=document.getElementById("admin-tools");
+      if(currentUser && (currentUser.rank==="Основатель" || currentUser.rank==="Старший Технический Администратор")){
+        adminTools.style.display="block";
+        const sel=document.getElementById("admin-rank-select"); sel.innerHTML="";
+        Object.keys(rankColors).forEach(r=>{
+          const opt=document.createElement("option");
+          opt.value=r; opt.textContent=r; opt.style.color=rankColors[r];
+          if(viewedUser.rank===r) opt.selected=true;
+          sel.appendChild(opt);
+        });
+        document.getElementById("admin-id-input").value=viewedUser.id;
+      } else {
+        adminTools.style.display="none";
+      }
+      openModal("view");
+    }
+
+    // --- Смена ранга чужого пользователя (админ)
+    function setUserRank(){
+      if(!viewedUser) return;
+      const newRank = document.getElementById("admin-rank-select").value;
+      viewedUser.rank = newRank;
+      users = users.map(u => u.nick === viewedUser.nick ? {...viewedUser} : u);
+      if(currentUser && currentUser.nick === viewedUser.nick){
+        currentUser = {...viewedUser}; saveCurrent();
+      }
+      saveUsers(); renderUsers(); viewProfile(viewedUser);
+    }
+
+    // --- Смена ID чужого пользователя (админ) с обменом при конфликте
+    function setUserId(){
+      if(!viewedUser) return;
+      const newId = parseInt(document.getElementById("admin-id-input").value);
+      if(isNaN(newId) || newId < 0){ alert("Неверный ID"); return; }
+      const oldId = viewedUser.id; if(newId === oldId){ return; }
+      const otherIndex = users.findIndex(u => Number(u.id) === newId);
+      if(otherIndex >= 0 && users[otherIndex].nick !== viewedUser.nick){
+        users = users.map(u => {
+          if(u.nick === users[otherIndex].nick) return {...u, id: oldId};
+          if(u.nick === viewedUser.nick) return {...u, id: newId};
+          return u;
+        });
+      } else {
+        users = users.map(u => u.nick === viewedUser.nick ? {...u, id: newId} : u);
+      }
+      viewedUser = users.find(u => u.nick === viewedUser.nick);
+      if(currentUser && currentUser.nick === viewedUser.nick){
+        currentUser = {...viewedUser}; saveCurrent();
+      }
+      saveUsers(); renderUsers(); viewProfile(viewedUser);
+    }
+
+    // --- Смена своего ранга (для Основателя и Старшего Тех.Админа)
+    function setSelfRank(){
+      if(!currentUser) return;
+      if(!(currentUser.rank==="Основатель" || currentUser.rank==="Старший Технический Администратор")){
+        alert("Недостаточно прав"); return;
+      }
+      const newRank = document.getElementById("self-rank-select").value;
+      currentUser.rank = newRank;
+      users = users.map(u => u.nick === currentUser.nick ? {...currentUser} : u);
+      saveUsers(); saveCurrent(); renderUsers(); showProfile(currentUser);
+    }
+
+    // --- Смена своего ID (для Основателя и Старшего Тех.Админа) с обменом
+    function setSelfId(){
+      if(!currentUser) return;
+      if(!(currentUser.rank==="Основатель" || currentUser.rank==="Старший Технический Администратор")){
+        alert("Недостаточно прав"); return;
+      }
+      const newId = parseInt(document.getElementById("self-id-input").value);
+      if(isNaN(newId) || newId < 0){ alert("Неверный ID"); return; }
+      const oldId = currentUser.id; if(newId === oldId) return;
+      const otherIndex = users.findIndex(u => Number(u.id) === newId);
+      if(otherIndex >= 0 && users[otherIndex].nick !== currentUser.nick){
+        users = users.map(u=>{
+          if(u.nick === users[otherIndex].nick) return {...u, id: oldId};
+          if(u.nick === currentUser.nick) return {...u, id: newId};
+          return u;
+        });
+      } else {
+        users = users.map(u => u.nick === currentUser.nick ? {...u, id: newId} : u);
+      }
+      currentUser = users.find(u => u.nick === currentUser.nick);
+      saveUsers(); saveCurrent(); renderUsers(); showProfile(currentUser);
+    }
+
+    // --- Удаление аккаунтов
+    function deleteByNick(nick){
+      if(!(currentUser && (currentUser.rank==="Основатель" || currentUser.rank==="Старший Технический Администратор"))){
+        alert("Недостаточно прав"); return;
+      }
+      if(!confirm("Удалить аккаунт: " + nick + " ?")) return;
+      const wasCurrent = currentUser && currentUser.nick===nick;
+      users = users.filter(u=>u.nick!==nick);
+      saveUsers();
+      if(wasCurrent){ currentUser=null; localStorage.removeItem("currentUser"); closeModal(); }
+      renderUsers();
+      alert("Аккаунт удалён");
+    }
+    function deleteUser(){ if(viewedUser){ deleteByNick(viewedUser.nick); } }
+    function deleteSelf(){
+      if(!currentUser) return;
+      if(!confirm("Удалить свой аккаунт?")) return;
+      users = users.filter(u=>u.nick!==currentUser.nick);
+      saveUsers(); currentUser=null; localStorage.removeItem("currentUser");
+      closeModal(); renderUsers(); alert("Аккаунт удалён");
+    }
+
+    // --- Модалки и навигация
+    function openModal(panel){
+      document.getElementById("modal").classList.add("active");
+      document.querySelectorAll(".modal-content").forEach(m=>m.classList.remove("active"));
+      if(panel==="login") document.getElementById("login-panel").classList.add("active");
+      if(panel==="user") document.getElementById("user-panel").classList.add("active");
+      if(panel==="view") document.getElementById("profile-view").classList.add("active");
+    }
+    function closeModal(){ document.getElementById("modal").classList.remove("active"); }
+
+    // --- Навигация по разделам / IP
+    function openRules(){ document.getElementById("rules").scrollIntoView({behavior:"smooth"}); }
+    function openCabinet(){ if(currentUser){ showProfile(currentUser); } else { openModal("login"); } }
+    function copyIp(){ navigator.clipboard.writeText("213.152.43.1:25617"); alert("IP скопирован!"); }
+    function scrollToIp(){ document.getElementById("ip-section").scrollIntoView({behavior:"smooth"}); }
+
+    // --- Init on load ---
+    try {
+      if(currentUser){
+        const fresh = users.find(u=>u.nick === currentUser.nick);
+        if(fresh) currentUser = fresh;
+        saveCurrent();
+      }
+    } catch(e){ console.error(e); }
+    renderUsers();
   </script>
 </body>
 </html>
