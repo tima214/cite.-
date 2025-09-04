@@ -112,38 +112,37 @@
 🔥 1.6: Запрещена демонстрация шок-контента, тошнотворного или контента сексуального характера, а также любого рода агитация и пропаганда к употреблению психотропных веществ.
 📌 Наказание: 1 пред. + мут на 4 часа.
   
-🔥 1.7: Запрещено разжигание конфликтов на национальной почве, религиозной основе и дискриминация по любому вышеперечисленному признаку по отношению к любому участнику проекта и/или сервера. Сюда входит выставление реакций  провокационного характера и поддержка таковых.
+🔥 1.7: Запрещено разжигание конфликтов на национальной почве, религиозной основе и дискриминация по любому вышеперечисленному признаку по отношению к любому участнику проекта и/или сервера. Сюда входит выставление реакций провокационного характера и поддержка таковых.
 📌 Наказание: 1 пред. + мут на 1 час.
  
 🔥 1.8: Запрещено препятствовать работе администрации, публично критиковать их или дискредитировать действия управляющего состава, в т.ч. модерации.
-📌 Наказание: мут на 1 час, при повторе - 4 часа.
+📌 Наказание: мут на 1 час, при повторе — 4 часа.
   
-🔥 1.9: Запрещено нерациональное использование чата (как голосового, так и текстового), что включает в себя чрезмерный капс, оффтоп, спам, флуд, мультипост итд.
-📌 Наказание: 1 пред, мут на 1 час
+🔥 1.9: Запрещено нерациональное использование чата (как голосового, так и текстового), что включает в себя чрезмерный капс, оффтоп, спам, флуд, мультипост и т.д.
+📌 Наказание: 1 пред. + мут на 1 час
   
 🔥 1.10: Запрещено злоупотребление отчётами в #сообщить-о-нарушении; а также клевета. Отчёты от третьих лиц не принимаются.
-📌 Наказание: пред. , мут на 2 часа
+📌 Наказание: пред. + мут на 2 часа
 
 🔥 1.11: Запрещено злоупотребление правилами проекта, в том числе поиск и использование в них лазеек с целью получения личной выгоды или обхода ограничений. Такие действия считаются злонамеренными и подрывают порядок на сервере.
 📌 Наказание: 1 пред. + мут на 1 день
 
-
 Примечания
- 
+
 🔥 2.1: Запрещены попытки обхода или ухода от выданного наказания путём создания дополнительных аккаунтов.
 📌 Наказание: бан основного и доп. аккаунтов бессрочно.
   
 🔥 2.2: Запрещено выпрашивать что-либо связанное с игровым сервером и/или проектом в рамках открытых чатов и обсуждений.
 📌 Наказание: 1 пред. + мут на 2 часа.
  
-🔥 2.3: Запрещено неадекватное поведение в голосовых каналах и в самой игре, нацеленное на препятствие общению ( трансляция громких звуков, которые препятствуют общению ).
+🔥 2.3: Запрещено неадекватное поведение в голосовых каналах и в самой игре, нацеленное на препятствие общению (трансляция громких звуков, которые препятствуют общению).
 📌 Наказание: войс-мут на 2 часа.
   
-🔥 2.4: Запрещена реклама сторонних коммерческих и/или скам-ресурсов и прочего в любых ее проявлениях.
-📌 Наказание: кик, бан
+🔥 2.4: Запрещена реклама сторонних коммерческих и/или скам-ресурсов и прочего в любых её проявлениях.
+📌 Наказание: кик / бан
 
-🔥 2.5: Запрещены завуалированные и замаскированные аналоги запрещенных к использованию банвордов в рамках проекта, данное расценивается как уход от наказания.
-📌 Наказание: 1 пред. / мут на 1 час / бан ( на усмотрение модерации).
+🔥 2.5: Запрещены завуалированные и замаскированные аналоги запрещённых к использованию банвордов в рамках проекта — это считается уходом от наказания.
+📌 Наказание: 1 пред. / мут на 1 час / бан (на усмотрение модерации).
 </pre>
     </section>
   </main>
@@ -156,15 +155,12 @@
     <div class="modal-content" id="login-panel">
       <span class="modal-close" onclick="closeModal()">&times;</span>
       <h2>Вход / Регистрация</h2>
-
       <input type="text" id="nickname" placeholder="Никнейм">
       <input type="password" id="password" placeholder="Пароль">
       <div class="remember">
         <input type="checkbox" id="rememberMe">
         <label for="rememberMe">Запомнить меня</label>
       </div>
-
-      <!-- Отдельные кнопки -->
       <button onclick="loginUser()">🔑 Войти</button>
       <button onclick="registerUser()">✅ Зарегистрироваться</button>
       <button class="google-btn" onclick="loginGoogle()">🔑 Войти через Google</button>
@@ -177,8 +173,6 @@
       <p>ID: <b id="user-id"></b></p>
       <p>🎮 Ник: <b id="user-nick"></b></p>
       <p>🏰 Ранг: <span id="current-rank"></span></p>
-
-      <!-- Админ-панель в ЛК (видна Основателю и Старшему Тех.Админу) -->
       <div id="self-admin-tools" style="display:none; margin-top:10px;">
         <h3>⚙️ Админ-панель</h3>
         <select id="self-rank-select"></select>
@@ -187,7 +181,6 @@
         <button onclick="setSelfId()">♻️ Сменить свой ID</button>
         <button onclick="deleteSelf()">🗑 Удалить свой аккаунт</button>
       </div>
-
       <button onclick="logout()">🚪 Выйти</button>
     </div>
 
@@ -198,8 +191,6 @@
       <p>ID: <b id="view-id"></b></p>
       <p>🎮 Ник: <b id="view-nick"></b></p>
       <p>🏰 Ранг: <span id="view-rank"></span></p>
-
-      <!-- Админ-панель при просмотре (видна Основателю и Старшему Тех.Админу) -->
       <div id="admin-tools" style="display:none; margin-top:10px;">
         <h3>⚙️ Админ-панель</h3>
         <select id="admin-rank-select"></select>
@@ -212,6 +203,11 @@
   </div>
 
   <script>
+    // ====== НАСТРОЙКА API ======
+    // Впишите сюда URL вашего бэкенда (пример: "https://your-app.onrender.com")
+    const API_BASE = "http://localhost:3000";
+
+    // Цвета рангов
     const rankColors = {
       "Игрок":"#ffffff",
       "Стажёр":"#f8c8dc",
@@ -225,119 +221,191 @@
       "Основатель":"#8e24aa"
     };
 
-    // Загрузка пользователей / сессии
-    let users = JSON.parse(localStorage.getItem("users") || "[]");
-    let currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
+    // Глобальные
+    let users = [];          // грузим с сервера
+    let currentUser = null;  // { id, nick, rank }
     let viewedUser = null;
 
-    function saveUsers(){ localStorage.setItem("users", JSON.stringify(users)); }
-    function saveCurrent(){ localStorage.setItem("currentUser", JSON.stringify(currentUser)); }
+    // ====== API обёртки ======
+    async function apiGetUsers(){
+      const r = await fetch(API_BASE + "/users");
+      if(!r.ok) throw new Error("Не удалось получить пользователей");
+      return await r.json();
+    }
+    async function apiRegister(nick, pass){
+      const r = await fetch(API_BASE + "/users", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({nick, pass})
+      });
+      if(!r.ok){
+        const e = await r.json().catch(()=>({}));
+        throw new Error(e.error || "Ошибка регистрации");
+      }
+      return await r.json();
+    }
+    async function apiLogin(nick, pass){
+      const r = await fetch(API_BASE + "/login", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({nick, pass})
+      });
+      if(!r.ok){
+        const e = await r.json().catch(()=>({}));
+        throw new Error(e.error || "Ошибка входа");
+      }
+      return await r.json();
+    }
+    async function apiPatchUser(nick, data){
+      const r = await fetch(API_BASE + "/users/" + encodeURIComponent(nick), {
+        method:"PATCH",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify(data)
+      });
+      if(!r.ok){
+        const e = await r.json().catch(()=>({}));
+        throw new Error(e.error || "Ошибка обновления пользователя");
+      }
+      return await r.json();
+    }
+    async function apiDeleteUser(nick){
+      const r = await fetch(API_BASE + "/users/" + encodeURIComponent(nick), { method:"DELETE" });
+      if(!r.ok){
+        const e = await r.json().catch(()=>({}));
+        throw new Error(e.error || "Ошибка удаления пользователя");
+      }
+      return await r.json();
+    }
 
-    // Отрисовка пользователей
+    // ====== Рендер пользователей ======
+    async function refreshUsers(){
+      users = await apiGetUsers();
+      renderUsers();
+    }
     function renderUsers(){
-      const container=document.getElementById("user-list"); container.innerHTML="";
+      const container = document.getElementById("user-list");
+      container.innerHTML = "";
       const sorted = [...users].sort((a,b)=> (a.id||0) - (b.id||0));
       sorted.forEach(u=>{
-        const div=document.createElement("div");
+        const div = document.createElement("div");
         div.className="user-card";
-        div.innerHTML=`<div>ID: ${u.id}</div>
+        div.innerHTML = `
+          <div>ID: ${u.id}</div>
           <div class="nick" style="color:${rankColors[u.rank]||"#fff"}">🎮 ${u.nick}</div>
           <div>🏰 <span style="color:${rankColors[u.rank]||'#fff'}">${u.rank}</span></div>`;
-        div.querySelector(".nick").onclick=()=>viewProfile(u);
+        div.querySelector(".nick").onclick = ()=>viewProfile(u);
 
-        // Кнопка удаления для Основателя и Старшего Тех.Админа
         if(currentUser && (currentUser.rank==="Основатель" || currentUser.rank==="Старший Технический Администратор")){
-          const btn=document.createElement("button");
+          const btn = document.createElement("button");
           btn.className="delete-btn";
           btn.textContent="🗑 Удалить";
-          btn.onclick=(e)=>{ e.stopPropagation(); deleteByNick(u.nick); };
+          btn.onclick = async (e)=>{
+            e.stopPropagation();
+            if(confirm("Удалить "+u.nick+"?")){
+              await apiDeleteUser(u.nick);
+              await refreshUsers();
+            }
+          };
           div.appendChild(btn);
         }
         container.appendChild(div);
       });
     }
 
-    // --- Регистрация (локально)
-    function registerUser(){
-      const nick=document.getElementById("nickname").value.trim();
-      const pass=document.getElementById("password").value.trim();
-      if(!nick||!pass){ alert("Введите данные"); return; }
-      if(users.some(u=>u.nick===nick)){ alert("Такой пользователь уже есть!"); return; }
-      const maxId = users.length ? Math.max(...users.map(x=>Number(x.id)||0)) : 0;
-      const id = maxId + 1;
-      const rank = users.length===0 ? "Основатель" : "Игрок";
-      const newUser={id,nick,pass,rank};
-      users.push(newUser); saveUsers();
-      currentUser=newUser; saveCurrent();
-      showProfile(newUser); renderUsers();
+    // ====== Регистрация / Вход ======
+    async function registerUser(){
+      const nick = document.getElementById("nickname").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      if(!nick || !pass){ alert("Введите данные"); return; }
+      try{
+        const user = await apiRegister(nick, pass);
+        currentUser = user;
+        if(document.getElementById("rememberMe")?.checked){
+          localStorage.setItem("currentUserNick", user.nick);
+          localStorage.setItem("currentUserPass", pass);
+        }
+        showProfile(user);
+        await refreshUsers();
+      }catch(e){ alert(e.message); }
     }
 
-    // --- Обычный вход (локально)
-    function loginUser(){
-      const nick=document.getElementById("nickname").value.trim();
-      const pass=document.getElementById("password").value.trim();
-      const user=users.find(u=>u.nick===nick && u.pass===pass);
-      if(!user){ alert("Неверный логин или пароль!"); return; }
-      if(document.getElementById("rememberMe")?.checked){ currentUser=user; saveCurrent(); }
-      else { currentUser=user; }
-      showProfile(user);
+    async function loginUser(){
+      const nick = document.getElementById("nickname").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      if(!nick || !pass){ alert("Введите данные"); return; }
+      try{
+        const user = await apiLogin(nick, pass);
+        currentUser = user;
+        if(document.getElementById("rememberMe")?.checked){
+          localStorage.setItem("currentUserNick", nick);
+          localStorage.setItem("currentUserPass", pass);
+        } else {
+          localStorage.removeItem("currentUserNick");
+          localStorage.removeItem("currentUserPass");
+        }
+        showProfile(user);
+        await refreshUsers();
+      }catch(e){ alert(e.message); }
     }
 
-    // --- Вход через Google (заглушка)
-    function loginGoogle(){
-      const maxId = users.length ? Math.max(...users.map(x=>Number(x.id)||0)) : 0;
-      const id = maxId + 1;
-      const nick = "GoogleUser" + id;
-      const rank = users.length===0 ? "Основатель" : "Игрок";
-      const newUser = { id, nick, pass: "oauth_google", rank };
-      users.push(newUser);
-      saveUsers();
-      if(document.getElementById("rememberMe")?.checked){ currentUser=newUser; saveCurrent(); }
-      else { currentUser=newUser; }
-      alert("Выполнен вход через Google как: " + nick + (rank==="Основатель" ? " (назначен Основателем)" : ""));
-      showProfile(newUser);
-      renderUsers();
+    async function loginGoogle(){
+      try{
+        const nick = "GoogleUser" + Date.now();
+        const pass = "oauth_google";
+        const user = await apiRegister(nick, pass);
+        currentUser = user;
+        if(document.getElementById("rememberMe")?.checked){
+          localStorage.setItem("currentUserNick", nick);
+          localStorage.setItem("currentUserPass", pass);
+        }
+        alert("Выполнен вход через Google как: " + nick + (user.rank==="Основатель" ? " (назначен Основателем)" : ""));
+        showProfile(user);
+        await refreshUsers();
+      }catch(e){ alert(e.message); }
     }
 
-    // --- Профиль текущего пользователя
+    function logout(){
+      currentUser = null;
+      localStorage.removeItem("currentUserNick");
+      localStorage.removeItem("currentUserPass");
+      openModal("login");
+    }
+
+    // ====== Профили ======
     function showProfile(user){
-      document.getElementById("user-id").textContent=user.id;
-      document.getElementById("user-nick").textContent=user.nick;
-      document.getElementById("current-rank").textContent=user.rank;
-      document.getElementById("current-rank").style.color=rankColors[user.rank] || "#fff";
+      document.getElementById("user-id").textContent = user.id;
+      document.getElementById("user-nick").textContent = user.nick;
+      document.getElementById("current-rank").textContent = user.rank;
+      document.getElementById("current-rank").style.color = rankColors[user.rank] || "#fff";
 
-      const selfTools=document.getElementById("self-admin-tools");
+      const selfTools = document.getElementById("self-admin-tools");
       if(currentUser && (currentUser.rank==="Основатель" || currentUser.rank==="Старший Технический Администратор")){
-        selfTools.style.display="block";
-        const sel=document.getElementById("self-rank-select"); sel.innerHTML="";
+        selfTools.style.display = "block";
+        const sel = document.getElementById("self-rank-select"); sel.innerHTML="";
         Object.keys(rankColors).forEach(r=>{
-          const opt=document.createElement("option");
+          const opt = document.createElement("option");
           opt.value=r; opt.textContent=r; opt.style.color=rankColors[r];
           if(user.rank===r) opt.selected=true;
           sel.appendChild(opt);
         });
-        document.getElementById("self-id-input").value=user.id;
+        document.getElementById("self-id-input").value = user.id;
       } else {
-        selfTools.style.display="none";
+        selfTools.style.display = "none";
       }
       openModal("user");
     }
 
-    function logout(){
-      currentUser=null; localStorage.removeItem("currentUser"); openModal("login");
-    }
-
-    // --- Просмотр чужого профиля
     function viewProfile(user){
-      viewedUser = users.find(u=>u.nick === user.nick);
-      document.getElementById("view-id").textContent=viewedUser.id;
-      document.getElementById("view-nick").textContent=viewedUser.nick;
-      document.getElementById("view-rank").textContent=viewedUser.rank;
-      document.getElementById("view-rank").style.color=rankColors[viewedUser.rank] || "#fff";
+      // user приходит из списка (актуальный с сервера)
+      viewedUser = users.find(u=>u.nick===user.nick) || user;
+      document.getElementById("view-id").textContent = viewedUser.id;
+      document.getElementById("view-nick").textContent = viewedUser.nick;
+      document.getElementById("view-rank").textContent = viewedUser.rank;
+      document.getElementById("view-rank").style.color = rankColors[viewedUser.rank] || "#fff";
 
-      const adminTools=document.getElementById("admin-tools");
+      const adminTools = document.getElementById("admin-tools");
       if(currentUser && (currentUser.rank==="Основатель" || currentUser.rank==="Старший Технический Администратор")){
-        adminTools.style.display="block";
+        adminTools.style.display = "block";
         const sel=document.getElementById("admin-rank-select"); sel.innerHTML="";
         Object.keys(rankColors).forEach(r=>{
           const opt=document.createElement("option");
@@ -345,106 +413,96 @@
           if(viewedUser.rank===r) opt.selected=true;
           sel.appendChild(opt);
         });
-        document.getElementById("admin-id-input").value=viewedUser.id;
+        document.getElementById("admin-id-input").value = viewedUser.id;
       } else {
-        adminTools.style.display="none";
+        adminTools.style.display = "none";
       }
       openModal("view");
     }
 
-    // --- Смена ранга чужого пользователя (админ)
-    function setUserRank(){
+    // ====== Админ-действия (чужой профиль) ======
+    async function setUserRank(){
       if(!viewedUser) return;
       const newRank = document.getElementById("admin-rank-select").value;
-      viewedUser.rank = newRank;
-      users = users.map(u => u.nick === viewedUser.nick ? {...viewedUser} : u);
-      if(currentUser && currentUser.nick === viewedUser.nick){
-        currentUser = {...viewedUser}; saveCurrent();
-      }
-      saveUsers(); renderUsers(); viewProfile(viewedUser);
+      try{
+        const updated = await apiPatchUser(viewedUser.nick, { rank: newRank });
+        viewedUser = updated;
+        if(currentUser && currentUser.nick === updated.nick) currentUser = updated;
+        await refreshUsers();
+        viewProfile(updated);
+      }catch(e){ alert(e.message); }
     }
 
-    // --- Смена ID чужого пользователя (админ) с обменом при конфликте
-    function setUserId(){
+    async function setUserId(){
       if(!viewedUser) return;
       const newId = parseInt(document.getElementById("admin-id-input").value);
-      if(isNaN(newId) || newId < 0){ alert("Неверный ID"); return; }
-      const oldId = viewedUser.id; if(newId === oldId){ return; }
-      const otherIndex = users.findIndex(u => Number(u.id) === newId);
-      if(otherIndex >= 0 && users[otherIndex].nick !== viewedUser.nick){
-        users = users.map(u => {
-          if(u.nick === users[otherIndex].nick) return {...u, id: oldId};
-          if(u.nick === viewedUser.nick) return {...u, id: newId};
-          return u;
-        });
-      } else {
-        users = users.map(u => u.nick === viewedUser.nick ? {...u, id: newId} : u);
-      }
-      viewedUser = users.find(u => u.nick === viewedUser.nick);
-      if(currentUser && currentUser.nick === viewedUser.nick){
-        currentUser = {...viewedUser}; saveCurrent();
-      }
-      saveUsers(); renderUsers(); viewProfile(viewedUser);
+      if(isNaN(newId) || newId<0){ alert("Неверный ID"); return; }
+      try{
+        const updated = await apiPatchUser(viewedUser.nick, { id: newId });
+        viewedUser = updated;
+        if(currentUser && currentUser.nick === updated.nick) currentUser = updated;
+        await refreshUsers();
+        viewProfile(updated);
+      }catch(e){ alert(e.message); }
     }
 
-    // --- Смена своего ранга (для Основателя и Старшего Тех.Админа)
-    function setSelfRank(){
+    async function deleteUser(){
+      if(!viewedUser) return;
+      if(!confirm("Удалить аккаунт: " + viewedUser.nick + " ?")) return;
+      try{
+        await apiDeleteUser(viewedUser.nick);
+        if(currentUser && currentUser.nick === viewedUser.nick){
+          currentUser = null;
+          localStorage.removeItem("currentUserNick");
+          localStorage.removeItem("currentUserPass");
+          closeModal();
+        } else {
+          closeModal();
+        }
+        await refreshUsers();
+        alert("Аккаунт удалён");
+      }catch(e){ alert(e.message); }
+    }
+
+    // ====== Свой профиль — админ-действия ======
+    async function setSelfRank(){
       if(!currentUser) return;
-      if(!(currentUser.rank==="Основатель" || currentUser.rank==="Старший Технический Администратор")){
-        alert("Недостаточно прав"); return;
-      }
       const newRank = document.getElementById("self-rank-select").value;
-      currentUser.rank = newRank;
-      users = users.map(u => u.nick === currentUser.nick ? {...currentUser} : u);
-      saveUsers(); saveCurrent(); renderUsers(); showProfile(currentUser);
+      try{
+        const updated = await apiPatchUser(currentUser.nick, { rank: newRank });
+        currentUser = updated;
+        await refreshUsers();
+        showProfile(updated);
+      }catch(e){ alert(e.message); }
     }
 
-    // --- Смена своего ID (для Основателя и Старшего Тех.Админа) с обменом
-    function setSelfId(){
+    async function setSelfId(){
       if(!currentUser) return;
-      if(!(currentUser.rank==="Основатель" || currentUser.rank==="Старший Технический Администратор")){
-        alert("Недостаточно прав"); return;
-      }
       const newId = parseInt(document.getElementById("self-id-input").value);
-      if(isNaN(newId) || newId < 0){ alert("Неверный ID"); return; }
-      const oldId = currentUser.id; if(newId === oldId) return;
-      const otherIndex = users.findIndex(u => Number(u.id) === newId);
-      if(otherIndex >= 0 && users[otherIndex].nick !== currentUser.nick){
-        users = users.map(u=>{
-          if(u.nick === users[otherIndex].nick) return {...u, id: oldId};
-          if(u.nick === currentUser.nick) return {...u, id: newId};
-          return u;
-        });
-      } else {
-        users = users.map(u => u.nick === currentUser.nick ? {...u, id: newId} : u);
-      }
-      currentUser = users.find(u => u.nick === currentUser.nick);
-      saveUsers(); saveCurrent(); renderUsers(); showProfile(currentUser);
+      if(isNaN(newId) || newId<0){ alert("Неверный ID"); return; }
+      try{
+        const updated = await apiPatchUser(currentUser.nick, { id: newId });
+        currentUser = updated;
+        await refreshUsers();
+        showProfile(updated);
+      }catch(e){ alert(e.message); }
     }
 
-    // --- Удаление аккаунтов
-    function deleteByNick(nick){
-      if(!(currentUser && (currentUser.rank==="Основатель" || currentUser.rank==="Старший Технический Администратор"))){
-        alert("Недостаточно прав"); return;
-      }
-      if(!confirm("Удалить аккаунт: " + nick + " ?")) return;
-      const wasCurrent = currentUser && currentUser.nick===nick;
-      users = users.filter(u=>u.nick!==nick);
-      saveUsers();
-      if(wasCurrent){ currentUser=null; localStorage.removeItem("currentUser"); closeModal(); }
-      renderUsers();
-      alert("Аккаунт удалён");
-    }
-    function deleteUser(){ if(viewedUser){ deleteByNick(viewedUser.nick); } }
-    function deleteSelf(){
+    async function deleteSelf(){
       if(!currentUser) return;
       if(!confirm("Удалить свой аккаунт?")) return;
-      users = users.filter(u=>u.nick!==currentUser.nick);
-      saveUsers(); currentUser=null; localStorage.removeItem("currentUser");
-      closeModal(); renderUsers(); alert("Аккаунт удалён");
+      try{
+        await apiDeleteUser(currentUser.nick);
+        currentUser = null;
+        localStorage.removeItem("currentUserNick");
+        localStorage.removeItem("currentUserPass");
+        closeModal();
+        await refreshUsers();
+        alert("Аккаунт удалён");
+      }catch(e){ alert(e.message); }
     }
 
-    // --- Модалки и навигация
+    // ====== Модалки / Навигация / IP ======
     function openModal(panel){
       document.getElementById("modal").classList.add("active");
       document.querySelectorAll(".modal-content").forEach(m=>m.classList.remove("active"));
@@ -453,22 +511,130 @@
       if(panel==="view") document.getElementById("profile-view").classList.add("active");
     }
     function closeModal(){ document.getElementById("modal").classList.remove("active"); }
-
-    // --- Навигация по разделам / IP
     function openRules(){ document.getElementById("rules").scrollIntoView({behavior:"smooth"}); }
     function openCabinet(){ if(currentUser){ showProfile(currentUser); } else { openModal("login"); } }
     function copyIp(){ navigator.clipboard.writeText("213.152.43.1:25617"); alert("IP скопирован!"); }
     function scrollToIp(){ document.getElementById("ip-section").scrollIntoView({behavior:"smooth"}); }
 
-    // --- Init on load ---
-    try {
-      if(currentUser){
-        const fresh = users.find(u=>u.nick === currentUser.nick);
-        if(fresh) currentUser = fresh;
-        saveCurrent();
+    // ====== Init ======
+    (async function init(){
+      try{
+        // авто-логин из localStorage, если есть
+        const savedNick = localStorage.getItem("currentUserNick");
+        const savedPass = localStorage.getItem("currentUserPass");
+        if(savedNick && savedPass){
+          try{
+            currentUser = await apiLogin(savedNick, savedPass);
+          }catch(e){
+            localStorage.removeItem("currentUserNick");
+            localStorage.removeItem("currentUserPass");
+          }
+        }
+        await refreshUsers();
+      }catch(e){
+        console.error(e);
+        alert("Ошибка инициализации: " + e.message);
       }
-    } catch(e){ console.error(e); }
-    renderUsers();
+    })();
   </script>
 </body>
 </html>
+{
+  "name": "elysium-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^9.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
+const express = require('express');
+const cors = require('cors');
+const Database = require('better-sqlite3');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+const db = new Database('elysium.db');
+db.pragma('journal_mode = WAL');
+db.exec(`
+CREATE TABLE IF NOT EXISTS users (
+  id   INTEGER PRIMARY KEY AUTOINCREMENT,
+  nick TEXT UNIQUE NOT NULL,
+  pass TEXT NOT NULL,
+  rank TEXT NOT NULL
+);
+`);
+
+function hasFounder() {
+  const row = db.prepare('SELECT 1 FROM users WHERE rank = ? LIMIT 1').get('Основатель');
+  return !!row;
+}
+
+app.get('/users', (req, res) => {
+  const rows = db.prepare('SELECT id, nick, rank FROM users ORDER BY id ASC').all();
+  res.json(rows);
+});
+
+app.post('/users', (req, res) => {
+  const { nick, pass } = req.body || {};
+  if (!nick || !pass) return res.status(400).json({ error: 'nick and pass required' });
+
+  const exists = db.prepare('SELECT 1 FROM users WHERE nick = ?').get(nick);
+  if (exists) return res.status(409).json({ error: 'nick exists' });
+
+  const rank = hasFounder() ? 'Игрок' : 'Основатель';
+  const info = db.prepare('INSERT INTO users (nick, pass, rank) VALUES (?, ?, ?)').run(nick, pass, rank);
+  const user = db.prepare('SELECT id, nick, rank FROM users WHERE id = ?').get(info.lastInsertRowid);
+  res.status(201).json(user);
+});
+
+app.post('/login', (req, res) => {
+  const { nick, pass } = req.body || {};
+  if (!nick || !pass) return res.status(400).json({ error: 'nick and pass required' });
+  const user = db.prepare('SELECT id, nick, rank FROM users WHERE nick = ? AND pass = ?').get(nick, pass);
+  if (!user) return res.status(401).json({ error: 'invalid credentials' });
+  res.json(user);
+});
+
+app.patch('/users/:nick', (req, res) => {
+  const nick = req.params.nick;
+  const { rank, id } = req.body || {};
+  const user = db.prepare('SELECT * FROM users WHERE nick = ?').get(nick);
+  if (!user) return res.status(404).json({ error: 'not found' });
+
+  if (typeof rank !== 'undefined') {
+    if (rank === 'Основатель') {
+      const other = db.prepare('SELECT nick FROM users WHERE rank = ? AND nick != ?').get('Основатель', nick);
+      if (other) return res.status(409).json({ error: 'founder already exists' });
+    }
+    db.prepare('UPDATE users SET rank = ? WHERE nick = ?').run(rank, nick);
+  }
+
+  if (typeof id !== 'undefined') {
+    if (!Number.isInteger(id) || id < 0) return res.status(400).json({ error: 'bad id' });
+    const conflict = db.prepare('SELECT nick FROM users WHERE id = ? AND nick != ?').get(id, nick);
+    if (conflict) return res.status(409).json({ error: 'id taken' });
+    db.prepare('UPDATE users SET id = ? WHERE nick = ?').run(id, nick);
+  }
+
+  const fresh = db.prepare('SELECT id, nick, rank FROM users WHERE nick = ?').get(nick);
+  res.json(fresh);
+});
+
+app.delete('/users/:nick', (req, res) => {
+  const nick = req.params.nick;
+  const info = db.prepare('DELETE FROM users WHERE nick = ?').run(nick);
+  if (info.changes === 0) return res.status(404).json({ error: 'not found' });
+  res.json({ ok: true });
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log('Elysium API listening on ' + PORT));
+      
